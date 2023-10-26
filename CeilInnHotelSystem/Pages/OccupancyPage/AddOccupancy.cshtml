@@ -1,0 +1,51 @@
+﻿@page
+@model CeilInnHotelSystem.Pages.OccupancyPage.OccupancyModel
+@{
+}
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="ClassRoom">Class List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Class</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                
+                                <div class="form-group mt-3">
+                                    <button type="submit" class="btn btn-primary mx-3" style="width: 150px">Create</button>
+                                    <a asp-page="Index" class="btn btn-secondary" style="width: 150px"> Back to list</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-page="ClassRoom" type="submit" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            <!-- Default Basic Forms End -->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@page
+@using CeilInnHotelSystem.Utility;
+@model CeilInnHotelSystem.Pages.RoomPage.RoomModel
+@{
+}
+
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Room Avaliable</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Room</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @if (User.IsInRole(RoleConstant.ADMIN))
+                    {
+                        <div class="col-md-6 col-sm-12 text-right">
+                            <div class="dropdown">
+                                <a class="btn btn-primary" asp-page="ImportFromExel">
+                                    Import from exel
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    @if (User.IsInRole(RoleConstant.EMPLOYEE))
+                    {
+                        <div class="col-md-6 col-sm-12 text-right">
+                            <div class="dropdown">
+                                <a class="btn btn-primary" asp-page="AddOccupancy">
+                                    Assign room
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <form method="get">
+                <div class="row mb-15">
+                    <div class="col-md-4">
+                        <div class="header-search">
+                            <form method="get">
+                                <div class="form-group mb-0" style="display:flex">
+                                    <i style="justify-content: flex-start;"
+                                       class="dw dw-search2 search-icon mr-10 mt-15"></i>
+                                    <input asp-for="Keyword" style="justify-content: flex-end;" type="text"
+                                           class="form-control search-input" placeholder="Search Here">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            @foreach (var item in Model.ListRoom)
+            {
+
+                <div class="card mx-2 mt-2" style="width: 18rem;">
+                    <img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">@item.RoomType</p>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

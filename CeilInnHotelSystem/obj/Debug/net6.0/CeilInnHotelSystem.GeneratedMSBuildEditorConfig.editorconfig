@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CeilInnHotelSystem
+build_property.RootNamespace = CeilInnHotelSystem
+build_property.ProjectDir = D:\PRN211\CeilInnHotelSystem\CeilInnHotelSystem\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\PRN211\CeilInnHotelSystem\CeilInnHotelSystem
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/CustomerPage/AddCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXEFkZEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/CustomerPage/Customer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/CustomerPage/DeleteCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXERlbGV0ZUN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/CustomerPage/UpdateCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXFVwZGF0ZUN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/EmployeePage/AddEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXEFkZEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/EmployeePage/DeleteEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXERlbGV0ZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/EmployeePage/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/EmployeePage/UpdateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVQYWdlXFVwZGF0ZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Forbidden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9yYmlkZGVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/OccupancyPage/AddOccupancy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2NjdXBhbmN5UGFnZVxBZGRPY2N1cGFuY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/RoomPage/Room.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVBhZ2VcUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Shared/_ErrorLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9FcnJvckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-s5tz1durqn

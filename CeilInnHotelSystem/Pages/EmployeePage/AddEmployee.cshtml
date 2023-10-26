@@ -1,0 +1,68 @@
+﻿@page
+@model CeilInnHotelSystem.Pages.EmployeePage.AddEmployeeModel
+@{
+}
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="ClassRoom">Class List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Class</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <form method="post">
+                    <div class="form-group row">
+                        <label asp-for="EmployeeAddRequest.FirstName" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="EmployeeAddRequest.FirstName" class="form-control" type="text" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="EmployeeAddRequest.LastName" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="EmployeeAddRequest.LastName" class="form-control" type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="EmployeeAddRequest.Title" class="col-sm-12 col-md-2 col-form-label">Title</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="EmployeeAddRequest.Title" class="form-control" type="text" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="EmployeeAddRequest.UserName" class="col-sm-12 col-md-2 col-form-label">UserName</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="EmployeeAddRequest.UserName" class="form-control" type="text" placeholder="UserName">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="EmployeeAddRequest.Password" class="col-sm-12 col-md-2 col-form-label">Password</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="EmployeeAddRequest.Password" class="form-control" type="text" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-page="ClassRoom" type="submit" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            <!-- Default Basic Forms End -->
+
+        </div>
+    </div>
+</div>

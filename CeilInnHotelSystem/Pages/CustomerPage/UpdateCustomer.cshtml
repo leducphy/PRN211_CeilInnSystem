@@ -1,0 +1,68 @@
+﻿@page
+@using CeilInnHotelSystem.Utility;
+@model CeilInnHotelSystem.Pages.CustomerPage.UpdateCustomerModel
+@{
+}
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="CustomerRequest">Customer List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit Customer</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            @if (User.IsInRole(RoleConstant.ADMIN))
+            {
+                <div class="pd-20 card-box mb-30">
+                    <form method="post">
+                        <input asp-for="CustomerRequest.Id" class="form-control" type="hidden">
+                        <div class="form-group row">
+                            <label asp-for="CustomerRequest.FirstName" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input asp-for="CustomerRequest.FirstName" class="form-control" type="text" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CustomerRequest.LastName" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input asp-for="CustomerRequest.LastName" class="form-control" type="text" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CustomerRequest.PhoneNumber" class="col-sm-12 col-md-2 col-form-label">Phone Number</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input asp-for="CustomerRequest.PhoneNumber" class="form-control" type="text" placeholder="Phonenumber">
+                            </div>
+                        </div><div class="form-group row">
+                            <label asp-for="CustomerRequest.EmergencyName" class="col-sm-12 col-md-2 col-form-label">EmergencyName</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input asp-for="CustomerRequest.EmergencyName" class="form-control" type="text" placeholder="EmergencyName">
+                            </div>
+                        </div><div class="form-group row">
+                            <label asp-for="CustomerRequest.EmergencyPhone" class="col-sm-12 col-md-2 col-form-label">EmergencyPhone</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input asp-for="CustomerRequest.EmergencyPhone" class="form-control" type="text" placeholder="EmergencyPhone">
+                            </div>
+                        </div>
+                        <div class="btn-list">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a asp-page="CustomerRequest" type="submit" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
