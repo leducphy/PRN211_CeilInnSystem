@@ -37,7 +37,7 @@
                     {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
-                                <a class="btn btn-primary" asp-page="AddOccupancy">
+                                <a class="btn btn-primary" href="/OccupancyPage/AddOccupancy">
                                     Assign room
                                 </a>
                             </div>
@@ -63,17 +63,21 @@
 
                 </div>
             </form>
-            @foreach (var item in Model.ListRoom)
-            {
+            <div class="d-flex flex-wrap">
+                @foreach (var item in Model.ListRoom)
+                {
+                    <div class="card mt-5 mx-3" style="width: 20rem; overflow: hidden; border-radius:15px;">
+                        <img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-title">Room Type: @item.RoomType</p>
+                            <p class="card-text">Bed type: @item.BedType</p>
+                            <p class="card-text @(item.RoomStatus ? "text-success" : "text-danger")">Status: @(item.RoomStatus ? "Avaliable" : "Not Avaliable")</p>
+                        </div>
 
-                <div class="card mx-2 mt-2" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">@item.RoomType</p>
                     </div>
-                </div>
-
-            }
+                }
+            </div>
+               
         </div>
     </div>
 </div>

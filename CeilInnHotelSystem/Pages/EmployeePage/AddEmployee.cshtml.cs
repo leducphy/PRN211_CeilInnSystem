@@ -31,6 +31,12 @@ namespace CeilInnHotelSystem.Pages.EmployeePage
         public async Task<IActionResult> OnPostAsync()
         {
 
+            var check = await _userManager.FindByNameAsync(EmployeeAddRequest.UserName);
+            if(check != null)
+            {
+                ViewData["error"] = "Username existed";
+                return Page();
+            }
             var dept = _mapper.Map<Employee>(EmployeeAddRequest);
             dept.Id = Guid.NewGuid();
             dept.Status = true;

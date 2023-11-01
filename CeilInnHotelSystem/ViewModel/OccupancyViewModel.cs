@@ -7,6 +7,17 @@ namespace CeilInnHotelSystem.ViewModel
     {
         public Guid Id { get; set; }
         public Guid? EmployeeId { get; set; }
+        public Guid? CustomerId { get; set; }
+        public Guid? RoomId { get; set; }
+        public DateTime? DateOccupied { get; set; }
+        public double? RateApplied { get; set; }
+        public double? PhoneCharge { get; set; }
+    }
+
+    public class OccupancyViewModel
+    {
+        public Guid Id { get; set; }
+        public Guid? EmployeeId { get; set; }
         public Employee? Employee { get; set; }
         public Guid? CustomerId { get; set; }
         public Customer? Customer { get; set; }

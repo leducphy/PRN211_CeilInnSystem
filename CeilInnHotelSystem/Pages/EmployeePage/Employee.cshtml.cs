@@ -1,6 +1,7 @@
 using CeilInnHotelSystem.Model;
 using CeilInnHotelSystem.Models;
 using CeilInnHotelSystem.Utility;
+using CeilInnHotelSystem.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,18 +14,20 @@ namespace CeilInnHotelSystem.Pages.EmployeePage
     public class EmployeeModel : PageModel
     {
         private readonly CeilInnHotelDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public List<Employee> ListEmployee { get; set; }
+        public List<EmployeeViewModel> ListEmployee { get; set; }
         [BindProperty]
         public string? Keyword { get; set; }
         [BindProperty]
         public bool? Status { get; set; }
         public int PageIndex { get; set; } = 1;
         public int TotalPage { get; set; }
-        public EmployeeModel( CeilInnHotelDbContext context)
+        public EmployeeModel( CeilInnHotelDbContext context, UserManager<AppUser> userManager)
         {
            
             _context = context;
+            _userManager = userManager;
         }
         public async Task<IActionResult> OnGetAsync(string? keyword, bool? status, int pageIndex, int pagesize)
         {
@@ -71,7 +74,7 @@ namespace CeilInnHotelSystem.Pages.EmployeePage
             return Page();
         }
 
-        public async Task<PagedList<Employee>> Search(string? keyword, int page, int pagesize)
+        public async Task<PagedList<EmployeeViewModel>> Search(string? keyword, int page, int pagesize)
         {
             var query = _context.Employees.Where(i => i.Status == true).AsQueryable();
             if (!string.IsNullOrEmpty(keyword))
@@ -82,9 +85,26 @@ namespace CeilInnHotelSystem.Pages.EmployeePage
             var query2 = await query.Skip((page - 1) * pagesize)
                 .Take(pagesize).ToListAsync();
             var res = await query.ToListAsync();
-            return new PagedList<Employee>
+
+            var listEmploye = new List<EmployeeViewModel>();
+            foreach (var employe in query2)
             {
-                Data = query2,
+                var u = await _userManager.FindByIdAsync(employe.Id.ToString());
+                if(u != null)
+                {
+                    var emp = new EmployeeViewModel()
+                    {
+                        employee = employe,
+                        UserName = u.UserName,
+                    };
+                    listEmploye.Add(emp);
+                }
+                
+            }
+
+            return new PagedList<EmployeeViewModel>
+            {
+                Data = listEmploye,
                 TotalCount = res.Count
             };
         }

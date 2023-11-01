@@ -47,6 +47,9 @@
                         <label asp-for="EmployeeAddRequest.UserName" class="col-sm-12 col-md-2 col-form-label">UserName</label>
                         <div class="col-sm-12 col-md-10">
                             <input asp-for="EmployeeAddRequest.UserName" class="form-control" type="text" placeholder="UserName">
+                            <div style="margin-top: 10px;font-style: italic" ; class="form-control-feedback text-danger">
+                                @ViewData["error"]
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -57,7 +60,7 @@
                     </div>
                     <div class="btn-list">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a asp-page="ClassRoom" type="submit" class="btn btn-danger">Cancel</a>
+                        <a asp-page="Employee" type="submit" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
