@@ -24,46 +24,46 @@
                 </div>
             </div>
             <!-- Default Basic Forms Start -->
-            @if (User.IsInRole(RoleConstant.ADMIN))
-            {
-                <div class="pd-20 card-box mb-30">
-                    <form method="post">
-                        <input asp-for="CustomerRequest.Id" class="form-control" type="hidden">
-                        <div class="form-group row">
-                            <label asp-for="CustomerRequest.FirstName" class="col-sm-12 col-md-2 col-form-label">First Name</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input asp-for="CustomerRequest.FirstName" class="form-control" type="text" placeholder="First Name">
-                            </div>
+
+            <div class="pd-20 card-box mb-30">
+                <form method="post">
+                    <input asp-for="CustomerRequest.Id" class="form-control" type="hidden">
+                    <div class="form-group row">
+                        <label asp-for="CustomerRequest.FirstName" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="CustomerRequest.FirstName" class="form-control" type="text" placeholder="First Name">
                         </div>
-                        <div class="form-group row">
-                            <label asp-for="CustomerRequest.LastName" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input asp-for="CustomerRequest.LastName" class="form-control" type="text" placeholder="Last Name">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="CustomerRequest.LastName" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="CustomerRequest.LastName" class="form-control" type="text" placeholder="Last Name">
                         </div>
-                        <div class="form-group row">
-                            <label asp-for="CustomerRequest.PhoneNumber" class="col-sm-12 col-md-2 col-form-label">Phone Number</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input asp-for="CustomerRequest.PhoneNumber" class="form-control" type="text" placeholder="Phonenumber">
-                            </div>
-                        </div><div class="form-group row">
-                            <label asp-for="CustomerRequest.EmergencyName" class="col-sm-12 col-md-2 col-form-label">EmergencyName</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input asp-for="CustomerRequest.EmergencyName" class="form-control" type="text" placeholder="EmergencyName">
-                            </div>
-                        </div><div class="form-group row">
-                            <label asp-for="CustomerRequest.EmergencyPhone" class="col-sm-12 col-md-2 col-form-label">EmergencyPhone</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input asp-for="CustomerRequest.EmergencyPhone" class="form-control" type="text" placeholder="EmergencyPhone">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="CustomerRequest.PhoneNumber" class="col-sm-12 col-md-2 col-form-label">Phone Number</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="CustomerRequest.PhoneNumber" class="form-control" type="text" placeholder="Phonenumber">
                         </div>
-                        <div class="btn-list">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <a asp-page="CustomerRequest" type="submit" class="btn btn-danger">Cancel</a>
+                    </div><div class="form-group row">
+                        <label asp-for="CustomerRequest.EmergencyName" class="col-sm-12 col-md-2 col-form-label">EmergencyName</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="CustomerRequest.EmergencyName" class="form-control" type="text" placeholder="EmergencyName">
                         </div>
-                    </form>
-                </div>
-            }
+                    </div><div class="form-group row">
+                        <label asp-for="CustomerRequest.EmergencyPhone" class="col-sm-12 col-md-2 col-form-label">EmergencyPhone</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="CustomerRequest.EmergencyPhone" class="form-control" type="text" placeholder="EmergencyPhone">
+                        </div>
+                    </div>
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-page="/CustomerPage/Customer" type="submit" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+
         </div>
     </div>
 </div>

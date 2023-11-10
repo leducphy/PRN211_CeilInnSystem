@@ -68,16 +68,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/OccupancyPage/AddOccupancy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2NjdXBhbmN5UGFnZVxBZGRPY2N1cGFuY3kuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/OccupancyPage/Occupancy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2NjdXBhbmN5UGFnZVxPY2N1cGFuY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/PaymentPage/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFBhZ2VcUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/RoomPage/AssignRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVBhZ2VcQXNzaWduUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/RoomPage/ImportRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVBhZ2VcSW1wb3J0Um9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/RoomPage/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbVBhZ2VcUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PRN211/CeilInnHotelSystem/CeilInnHotelSystem/Pages/RoomPage/Room.cshtml]

@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace CeilInnHotelSystem.Pages.OccupancyPage
 {
     public class OccupancyModel : PageModel
     {
         private CeilInnHotelDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
         public List<Occupancy> ListOccupancy { get; set; }
         [BindProperty]
@@ -20,27 +22,38 @@ namespace CeilInnHotelSystem.Pages.OccupancyPage
         public bool? Status { get; set; }
         public int PageIndex { get; set; } = 1;
         public int TotalPage { get; set; }
-        public OccupancyModel(CeilInnHotelDbContext context)
+        public OccupancyModel(CeilInnHotelDbContext context, UserManager<AppUser> userManager)
         {
 
             _context = context;
+            _userManager = userManager;
         }
         public async Task<IActionResult> OnGetAsync(string? keyword, bool? status, int pageIndex, int pagesize)
         {
-
 
             Keyword = keyword;
             Status = status;
             if (pageIndex == 0) pageIndex = 1;
             PageIndex = pageIndex;
-            pagesize = 10;
-            var search = await Search(keyword, pageIndex, pagesize);
-            ListOccupancy = search.Data.ToList();
-            TotalPage = (int)(Math.Ceiling(search.TotalCount / (double)pagesize));
+            pagesize = 5;
+            if (User.IsInRole(RoleConstant.EMPLOYEE))
+            {
+                var eid = _userManager.GetUserId(User);
+                var search = await Search(keyword,Guid.Parse(eid), pageIndex, pagesize);
+                ListOccupancy = search.Data.ToList();
+                TotalPage = (int)(Math.Ceiling(search.TotalCount / (double)pagesize));
+            }
+            else
+            {
+                var search = await Search(keyword, null, pageIndex, pagesize);
+                ListOccupancy = search.Data.ToList();
+                TotalPage = (int)(Math.Ceiling(search.TotalCount / (double)pagesize));
+            }
+            
             return Page();
         }
 
-        public async Task<PagedList<Occupancy>> Search(string? keyword, int page, int pagesize)
+        public async Task<PagedList<Occupancy>> Search(string? keyword,Guid? employeeId, int page, int pagesize)
         {
             var query = _context.Occupancies.AsQueryable();
             if (!string.IsNullOrEmpty(keyword))
@@ -50,6 +63,12 @@ namespace CeilInnHotelSystem.Pages.OccupancyPage
                                       || (!string.IsNullOrEmpty(c.Customer.FirstName) && c.Customer.FirstName.Contains(keyword.ToLower().Trim()))
                                       || (!string.IsNullOrEmpty(c.Customer.LastName) && c.Customer.LastName.Contains(keyword.ToLower().Trim())));
             }
+
+            if(employeeId != null)
+            {
+                query = query.Where(i => i.EmployeeId == employeeId);
+            }
+
             var query2 = await query.Include(i => i.Customer)
                                     .Include(i => i.Employee)
                                     .Include(i => i.Room)

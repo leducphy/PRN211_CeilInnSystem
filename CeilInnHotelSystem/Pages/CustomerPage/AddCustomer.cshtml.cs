@@ -37,20 +37,20 @@ namespace CeilInnHotelSystem.Pages.CustomerPage
             await _context.Customers.AddAsync(dept);
             await _context.SaveChangesAsync();
 
-            var user = new AppUser()
-            {
-                Id = dept.Id.ToString(),
-                FullName = dept.FirstName,
-                Login = CustomerAddRequest.UserName,
-                UserName = CustomerAddRequest.UserName,
-                Type = 0,
-                Activated = true,
-            };
-            var res = await _userManager.CreateAsync(user, CustomerAddRequest.Password);
-            if (res.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(user, RoleConstant.CUSTOMER);
-            }
+            //var user = new AppUser()
+            //{
+            //    Id = dept.Id.ToString(),
+            //    FullName = dept.FirstName,
+            //    Login = CustomerAddRequest.UserName,
+            //    UserName = CustomerAddRequest.UserName,
+            //    Type = 0,
+            //    Activated = true,
+            //};
+            //var res = await _userManager.CreateAsync(user, CustomerAddRequest.Password);
+            //if (res.Succeeded)
+            //{
+            //    await _userManager.AddToRoleAsync(user, RoleConstant.CUSTOMER);
+            //}
 
             return RedirectToPage("/CustomerPage/Customer");
         }

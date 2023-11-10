@@ -1,0 +1,107 @@
+﻿@page
+@using CeilInnHotelSystem.Model;
+@using Microsoft.AspNetCore.Identity;
+@model CeilInnHotelSystem.Pages.RoomPage.PaymentModel
+@inject UserManager<AppUser> _UserManager
+
+@{
+}
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="RoomPage/Room">Room</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <form method="post">
+                    <input type="hidden" asp-for="paymentAddModel.EmployeeId" value="@_UserManager.GetUserId(User)" />
+                    <input type="hidden" asp-for="paymentAddModel.CustomerId" value="@Model.occv.Customer.Id" />
+                    <input type="hidden" asp-for="roomDetails" value="@Model.occv.RoomId" />
+                    <label>Room</label>
+                    <div class="form-group mt-2">
+                        <input value="@Model.occv.Room.RoomType" class="form-control" style="width: 30%; height: 38px;" disabled />
+                    </div>
+                    <label>Customer</label>
+                    <div class="form-group mt-2">
+                        <input value="@Model.occv.Customer.FirstName @Model.occv.Customer.LastName" class="form-control" style="width: 30%; height: 38px;" disabled />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label"> Employee</label>
+                        <input value="@Model.occv.Employee.FirstName @Model.occv.Employee.LastName" class="form-control" style="width: 30%; height: 38px;" disabled />
+                    </div>
+                    @* <div class="form-group mt-2">
+                        <label class="control-label"> Payment Date</label>
+                        <input asp-for="paymentAddModel.PaymentDate" class="form-control" style="width: 30%; height: 38px;" />
+                    </div> *@
+                    <div class="form-group mt-2">
+                        <label class="control-label"> Tax rate</label>
+                        <input value="0.1" class="form-control" style="width: 30%; height: 38px;" asp-for="paymentAddModel.TaxRate" type="number" id="texRate" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label">Amount Charged</label>
+                        <input id="totalMoney" class="form-control" style="width: 30%; height: 38px;" asp-for="paymentAddModel.AmountCharged" readonly  />
+                    </div>
+                    <input value="@Model.stayDuration" id="stayDuration" type="hidden" />
+                    <input value="@Model.occv.Room.Rate" id="roomRate" type="hidden" />
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-page="Room" type="submit" class="btn btn-danger">Cancel</a>
+                    </div>
+                   
+                </form>
+            </div>
+            <!-- Default Basic Forms End -->
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var texRate = document.getElementById("texRate");
+    var stayDuration = document.getElementById("stayDuration");
+    var roomRate = document.getElementById("roomRate");
+    var totalMoney = document.getElementById("totalMoney");
+    var v1 = parseFloat(texRate.value);
+    var v2 = parseFloat(stayDuration.value);
+    var v3 = parseFloat(roomRate.value);
+    var v4 = (v2 * v3) + (v2 * v3) * v1;
+
+
+    totalMoney.value = v4;
+
+    console.log(texRate.value);
+    console.log(stayDuration.value);
+    console.log(roomRate.value);
+    console.log(totalMoney.value);
+
+
+    texRate.addEventListener("input", function () {
+        var v1 = parseFloat(texRate.value);
+        var v2 = parseFloat(stayDuration.value);
+        var v3 = parseFloat(roomRate.value);
+        var v4 = (v2 * v3) + (v2 * v3) * v1;
+
+        totalMoney.value = v4;
+    });
+
+    document.querySelector('form').addEventListener('submit', function (event) {
+    
+        paymentAddModel.AmountCharged = parseFloat(totalMoney.value);
+    });
+</script>

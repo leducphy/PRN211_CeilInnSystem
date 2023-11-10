@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using CeilInnHotelSystem.ViewModel;
 using CeilInnHotelSystem.Model;
 
-namespace StudentManagingSystem.Pages
+namespace CeilInnHotelSystem.Pages
 {
     public class LoginModel : PageModel
     {

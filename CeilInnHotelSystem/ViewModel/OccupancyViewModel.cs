@@ -9,7 +9,8 @@ namespace CeilInnHotelSystem.ViewModel
         public Guid? EmployeeId { get; set; }
         public Guid? CustomerId { get; set; }
         public Guid? RoomId { get; set; }
-        public DateTime? DateOccupied { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public double? RateApplied { get; set; }
         public double? PhoneCharge { get; set; }
     }
@@ -23,7 +24,8 @@ namespace CeilInnHotelSystem.ViewModel
         public Customer? Customer { get; set; }
         public Guid? RoomId { get; set; }
         public Room? Room { get; set; }
-        public DateTime? DateOccupied { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public double? RateApplied { get; set; }
         public double? PhoneCharge { get; set; }
     }

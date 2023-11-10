@@ -1,7 +1,7 @@
 ﻿@page
 @using CeilInnHotelSystem.Model;
 @using Microsoft.AspNetCore.Identity;
-@model CeilInnHotelSystem.Pages.OccupancyPage.AddOccupancyModel
+@model CeilInnHotelSystem.Pages.RoomPage.AssignRoomModel
 @inject UserManager<AppUser> _UserManager
 @{
 }
@@ -30,14 +30,10 @@
             <div class="pd-20 card-box mb-30">
                 <form method="post">
                     <input type="hidden" asp-for="OccupancyAddModel.EmployeeId" value="@_UserManager.GetUserId(User)" />
+                    <input type="hidden" value="@Model.Room.Id" asp-for="OccupancyAddModel.RoomId"/>
                     <label>Room</label>
                     <div class="form-group mt-2">
-                        <select asp-for="OccupancyAddModel.RoomId" class="custom-select2 form-control" style="width: 30%; height: 38px;">
-                            @foreach (var item in Model.RoomList)
-                            {
-                                <option value="@item.Id">@item.RoomType - @item.BedType</option>
-                            }
-                        </select>
+                        <input value="@Model.Room.RoomType" class="form-control" style="width: 30%; height: 38px;" disabled />
                     </div>
                     <label>Customer</label>
                     <div class="form-group mt-2">
@@ -49,14 +45,14 @@
                         </select>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label"> Date</label>
-                        <input asp-for="OccupancyAddModel.DateOccupied" class="form-control" style="width: 30%; height: 38px;" />
-                        <span asp-validation-for="OccupancyAddModel.DateOccupied" class="text-danger"></span>
+                        <label class="control-label">Start Date</label>
+                        <input asp-for="OccupancyAddModel.StartDate" class="form-control" style="width: 30%; height: 38px;" />
+                        <span asp-validation-for="OccupancyAddModel.StartDate" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
-                        <label class="control-label">Rate Applied</label>
-                        <input asp-for="OccupancyAddModel.RateApplied" class="form-control" style="width: 30%; height: 38px;" />
-                        <span asp-validation-for="OccupancyAddModel.RateApplied" class="text-danger"></span>
+                        <label class="control-label">End Date</label>
+                        <input asp-for="OccupancyAddModel.EndDate" class="form-control" style="width: 30%; height: 38px;" />
+                        <span asp-validation-for="OccupancyAddModel.EndDate" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
                         <label class="control-label"> Phone Charge</label>
@@ -65,7 +61,7 @@
                     </div>
                     <div class="btn-list">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a asp-page="ClassRoom" type="submit" class="btn btn-danger">Cancel</a>
+                        <a asp-page="Room" type="submit" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

@@ -41,7 +41,7 @@ namespace CeilInnHotelSystem.Pages.CustomerPage
 
         public async Task<PagedList<Customer>> Search(string? keyword, int page, int pagesize)
         {
-            var query = _context.Customers.Where(i => i.Status == true).AsQueryable();
+            var query = _context.Customers.AsQueryable();
             if (!string.IsNullOrEmpty(keyword))
             {
                 query = query.Where(c => (!string.IsNullOrEmpty(c.FirstName) && c.FirstName.Contains(keyword.ToLower().Trim()))

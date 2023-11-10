@@ -17,7 +17,7 @@ namespace CeilInnHotelSystem.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.23")
+                .HasAnnotation("ProductVersion", "6.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -216,23 +216,26 @@ namespace CeilInnHotelSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DateOccupied")
-                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double?>("PhoneCharge")
-                        .HasColumnType("float");
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<double?>("RateApplied")
+                    b.Property<double?>("PhoneCharge")
                         .HasColumnType("float");
 
                     b.Property<Guid?>("RoomId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -294,9 +297,6 @@ namespace CeilInnHotelSystem.Migrations
                     b.Property<string>("RoomType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("Status")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

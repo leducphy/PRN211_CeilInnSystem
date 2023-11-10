@@ -48,32 +48,17 @@
         <div class="header-right">
             @if (_SignInManager.IsSignedIn(User))
             {
-                <div class="user-notification">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
-                            <i class="icon-copy dw dw-notification"></i>
-                            <span class="badge notification-active"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <div class="notification-list mx-h-350 customscroll">
-                                <ul>
-                                    
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="user-info-dropdown">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">
+               
+                <div class="user-info-dropdown ">
+                    <div class="dropdown ">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" style="cursor:pointer;">
                             <span class="user-icon">
                                 <img src="~/vendors/images/photo1.jpg" alt="">
                             </span>
                             <span class="user-name">@User.Identity.Name</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="/UserProfile?id=@_UserManager.GetUserId(User)"><i class="dw dw-user1"></i> Profile</a>
+                            @* <a class="dropdown-item" href="/UserProfile?id=@_UserManager.GetUserId(User)"><i class="dw dw-user1"></i> Profile</a> *@
                             <a class="dropdown-item" href="/Logout"><i class="dw dw-logout"></i> Log Out</a>
                         </div>
                     </div>
@@ -102,16 +87,16 @@
         <div class="menu-block customscroll">
             <div class="sidebar-menu">
                 <ul id="accordion-menu">
-                    <li>
+                    @* <li>
                         <a href="/Index" class="dropdown-toggle no-arrow">
                             <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                         </a>
-                    </li>
+                    </li> *@
                     @if (User.IsInRole(RoleConstant.ADMIN))
                     {
                         <li>
                             <a href="/EmployeePage/Employee" class="dropdown-toggle no-arrow">
-                                <span class="micon dw dw-list3"></span><span class="mtext">Employee</span>
+                                <span class="micon dw dw-list3"></span><span class="mtext">Employees</span>
                             </a>
                         </li>
                     }
@@ -119,24 +104,30 @@
                     {
                         <li>
                             <a href="/CustomerPage/Customer" class="dropdown-toggle no-arrow">
-                                <span class="micon dw dw-list3"></span><span class="mtext">Customer</span>
+                                <span class="micon dw dw-list3"></span><span class="mtext">Customers</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/OccupancyPage/Occupancy" class="dropdown-toggle no-arrow">
-                                <span class="micon dw dw-list3"></span><span class="mtext">Occupancy</span>
-                            </a>
-                        </li>
-                    }
-
-                    @if (User.IsInRole(RoleConstant.EMPLOYEE) || User.IsInRole(RoleConstant.ADMIN) || User.IsInRole(RoleConstant.CUSTOMER))
-                    {
                         <li>
                             <a href="/RoomPage/Room" class="dropdown-toggle no-arrow">
-                                <span class="micon dw dw-list3"></span><span class="mtext">Room</span>
+                                <span class="micon dw dw-list3"></span><span class="mtext">Rooms</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/occupancypage/occupancy" class="dropdown-toggle no-arrow">
+                                <span class="micon dw dw-list3"></span><span class="mtext">Occupancys</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/PaymentPage/Payment" class="dropdown-toggle no-arrow">
+                                <span class="micon dw dw-list3"></span><span class="mtext">Payments</span>
                             </a>
                         </li>
                     }
+@* 
+                    @if (User.IsInRole(RoleConstant.EMPLOYEE) || User.IsInRole(RoleConstant.ADMIN) || User.IsInRole(RoleConstant.CUSTOMER))
+                    {
+                       
+                    } *@
                    
                    
                 </ul>

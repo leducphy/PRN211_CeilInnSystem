@@ -1,0 +1,86 @@
+﻿@page
+@model CeilInnHotelSystem.Pages.PaymentPage.PaymentModel
+@{
+}
+
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Occupancy List</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Occupancy</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <form method="get">
+                <div class="row mb-15">
+                    <div class="col-md-4">
+                        <div class="header-search">
+                            <form method="get">
+                                <div class="form-group mb-0" style="display:flex">
+                                    <i style="justify-content: flex-start;"
+                                       class="dw dw-search2 search-icon mr-10 mt-15"></i>
+                                    <input asp-for="Keyword" style="justify-content: flex-end;" type="text"
+                                           class="form-control search-input" placeholder="Search Here">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered ">
+                    <thead style="background-color: lightgray">
+                        <tr>
+                            <th>Customer</th>
+                            <th>Employee</th>
+                            <th>Patment Date</th>
+                            <th>Tax Rate</th>
+                            <th>Amount Charged</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ListPayment)
+                        {
+                            <tr>
+                                <td class="table-plus">@(item.Customer != null ? item.Customer.FirstName +" "+ item.Customer.LastName : "")</td>
+                                <td> @(item.Employee != null ? item.Employee.FirstName + " " + item.Employee.LastName : "")</td>
+                                <td>@item.PaymentDate</td>
+                                <td>@item.TaxRate</td>
+                                <td>@item.AmountCharged</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            @{
+                var prev = Model.PageIndex > 1 ? "" : "disabled";
+                var next = Model.PageIndex <= Model.TotalPage ? "" : "disabled";
+            }
+            <div class="row">
+                <div class="btn-group mb-15" style="margin-left:15px;">
+                    <a class="btn btn-light @prev" asp-page="./Occupancy" asp-route-pageIndex="@(Model.PageIndex-1)">Previous</a>
+                    @for (int i = 1; i <= Model.TotalPage; i++)
+                    {
+                        <a class="btn @(i == Model.PageIndex ? "btn-success" : "btn-light")" asp-page="./Occupancy" asp-route-pageIndex="@i">@i</a>
+                    }
+                    <a class="btn btn-light @next" asp-page="./Occupancy" asp-route-pageIndex="@(Model.PageIndex+1)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

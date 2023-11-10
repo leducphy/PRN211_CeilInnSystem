@@ -12,7 +12,12 @@ namespace CeilInnHotelSystem.Models
         public string BedType { get; set; }
         public float Rate { get; set; }
         public bool RoomStatus { get; set; }
-        public bool? Status { get; set; }
+       
+
+        public static implicit operator Room(Task<Room?> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

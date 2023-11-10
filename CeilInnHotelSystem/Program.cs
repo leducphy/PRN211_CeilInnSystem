@@ -57,7 +57,7 @@ namespace CeilInnHotelSystem
             app.UseAuthorization();
 
             app.MapRazorPages();
-
+            app.MapGet("/", () => Results.Redirect("/CustomerPage/Customer")); // Redirect to another page
             app.Run();
         }
     }

@@ -53,21 +53,10 @@
                             <input asp-for="CustomerAddRequest.EmergencyPhone" class="form-control" type="text" placeholder="EmergencyPhone">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label asp-for="CustomerAddRequest.UserName" class="col-sm-12 col-md-2 col-form-label">UserName</label>
-                        <div class="col-sm-12 col-md-10">
-                            <input asp-for="CustomerAddRequest.UserName" class="form-control" type="text" placeholder="UserName">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label asp-for="CustomerAddRequest.Password" class="col-sm-12 col-md-2 col-form-label">Password</label>
-                        <div class="col-sm-12 col-md-10">
-                            <input asp-for="CustomerAddRequest.Password" class="form-control" type="text" placeholder="Password">
-                        </div>
-                    </div>
+                   
                     <div class="btn-list">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a asp-page="ClassRoom" type="submit" class="btn btn-danger">Cancel</a>
+                        <a asp-page="/CustomerPage/Customer" type="submit" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

@@ -14,7 +14,6 @@ namespace CeilInnHotelSystem.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

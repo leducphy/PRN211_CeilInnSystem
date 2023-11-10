@@ -23,13 +23,7 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-right">
-                        <div class="dropdown">
-                            <a class="btn btn-primary" asp-page="AddOccupancy">
-                                Add Occupancy
-                            </a>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
             <form method="get">
@@ -46,33 +40,6 @@
                             </form>
                         </div>
                     </div>
-                    @*  <div class="col-md-3">
-                    <div style="display: flex;">
-                    <p style="justify-content: flex-start; margin-top:9px" class="mr-10">Status</p>
-                    <div style="justify-content: flex-end; width: 200px;">
-                    <select asp-for="Status" class="custom-select">
-                    <option selected="" value="null">All</option>
-                    <option value="True">Hoạt động</option>
-                    <option value="False">Không hoạt động</option>
-                    </select>
-                    </div>
-                    </div>
-                    </div> *@
-                    <button type="submit" style="height: 44px;margin-left: 20px;width: 114px;" class="btn btn-success">Filter</button>
-                    @*<div class="col-md-3">
-                    <div style="display: flex;">
-                    <p style="justify-content: flex-start;margin-top:9px" class="mr-10">Status</p>
-                    <div style="justify-content: flex-end; width: 200px;">
-                    <select class="custom-select">
-                    <option selected="">All</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    </select>
-                    </div>
-                    </div>
-
-                    </div>*@
                 </div>
             </form>
             <div class="table-responsive">
@@ -81,32 +48,22 @@
                         <tr>
                             <th>Room</th>
                             <th>Customer</th>
-                            <th>Date</th>
-                            <th>Rate</th>
+                            <th>Employee</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
                             <th>Phone</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.ListOccupancy)
                         {
                             <tr>
-                                <td class="table-plus">@item.Room.RoomType @item.Room.BedType</td>
+                                <td class="table-plus">@(item.Room != null ? item.Room.RoomType : "")</td>
                                 <td> @(item.Customer != null ? item.Customer.LastName + " " + item.Customer.FirstName : "")</td>
-                                <td>@item.DateOccupied</td>
-                                <td>@item.RateApplied</td>
+                                <td> @(item.Employee != null ? item.Employee.FirstName + " " + item.Employee.LastName : "")</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.EndDate</td>
                                 <td>@item.PhoneCharge</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" asp-page="UpdateOccupancy" asp-route-id="@item.Id" asp-route-pageIndex="@Model.PageIndex"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" asp-page="DeleteOccupancy" asp-route-id="@item.Id" onclick="return confirmDelete(event)"><i class="dw dw-delete-3"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
                             </tr>
                         }
 
@@ -130,23 +87,3 @@
         </div>
     </div>
 </div>
-<script>
-    function confirmDelete(event) {
-        event.preventDefault(); // prevent the default action of the button click
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // if the user clicks the confirm button, continue with the delete action
-                window.location.href = event.target.href;
-            }
-        });
-        return false;
-    }
-</script>

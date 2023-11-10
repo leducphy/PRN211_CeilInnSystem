@@ -17,9 +17,9 @@ namespace CeilInnHotelSystem.Models
         [ForeignKey("Room")]
         public Guid? RoomId { get; set; }
         public Room? Room { get; set; }
-        public DateTime? DateOccupied { get; set; }
-        public double? RateApplied { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public double? PhoneCharge { get; set; }
-
+        public DateTime? CreatedDate { get; set; }
     }
 }

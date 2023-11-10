@@ -27,22 +27,17 @@
                     {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
-                                <a class="btn btn-primary" asp-page="ImportFromExel">
-                                    Import from exel
+                                <a class="btn btn-outline-success" onclick="chooseFile()">
+                                    Import
                                 </a>
+                                <form id="uploadForm" method="post" enctype="multipart/form-data" asp-page="ImportRoom" style="display: none;">
+                                    <input id="fileInput" type="file" name="file" accept=".xlsx, .xls" />
+                                    <button id="submitBtn" type="submit">Submit</button>
+                                </form>
                             </div>
                         </div>
                     }
-                    @if (User.IsInRole(RoleConstant.EMPLOYEE))
-                    {
-                        <div class="col-md-6 col-sm-12 text-right">
-                            <div class="dropdown">
-                                <a class="btn btn-primary" href="/OccupancyPage/AddOccupancy">
-                                    Assign room
-                                </a>
-                            </div>
-                        </div>
-                    }
+
 
                 </div>
             </div>
@@ -67,17 +62,109 @@
                 @foreach (var item in Model.ListRoom)
                 {
                     <div class="card mt-5 mx-3" style="width: 20rem; overflow: hidden; border-radius:15px;">
-                        <img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap">
+                        @if (item.RoomStatus == false)
+                        {
+                            <a asp-page-handler="DetailOccupancy" asp-route-id="@item.Id"><img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap"></a>
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="Card image cap">
+
+                        }
                         <div class="card-body">
                             <p class="card-title">Room Type: @item.RoomType</p>
                             <p class="card-text">Bed type: @item.BedType</p>
+                            <p class="card-text">Rate: @item.Rate</p>
                             <p class="card-text @(item.RoomStatus ? "text-success" : "text-danger")">Status: @(item.RoomStatus ? "Avaliable" : "Not Avaliable")</p>
                         </div>
+                        @if (User.IsInRole(RoleConstant.EMPLOYEE))
+                        {
+                            @if (item.RoomStatus == true)
+                            {
+                                <a type="button" class="btn btn-primary m-2" asp-page="/RoomPage/AssignRoom" asp-route-id="@item.Id">Check In</a>
+                            }
+                            else
+                            {
+                                <a type="button" class="btn btn-danger m-2" asp-page="/RoomPage/Payment" asp-route-id="@item.Id">Check Out</a>
+                            }
+
+                        }
+
 
                     </div>
                 }
             </div>
-               
+
         </div>
     </div>
 </div>
+
+@if (ViewData["open"] != null)
+{
+    <div style="display:block;background-color:#00000882" class="modal show bs-example-modal-lg" tabindex="0"
+         role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <ol class="breadcrumb">
+                            <li>
+                                <span id="ctl00_lblNavigation">
+                                    <b>Room</b>&nbsp;|&nbsp;<b>Information</b>
+                                </span>
+                            </li>
+                        </ol>
+                        <table>
+                            <tbody>
+                                <tr style="border-bottom: 0 none">
+                                    <td>
+                                        <div>
+                                            <div id="ctl00_mainContent_divContent">
+                                                <span class="fon31" style="font-weight:bold">
+                                                    @Model.occupancy.Room.RoomType
+                                                </span><br>Assgin by
+                                                @Model.occupancy.Employee.FirstName on @Model.occupancy.StartDate
+                                                <hr>
+                                                <p>
+                                                    Name: @Model.occupancy.Customer.FirstName @Model.occupancy.Customer.FirstName
+                                                </p>
+                                                <p>
+                                                    Phone Charge: @Model.occupancy.PhoneCharge
+                                                </p>
+                                                <p>
+                                                    Start Date: @Model.occupancy.StartDate
+                                                </p>
+                                                <p>
+                                                    End Date: @Model.occupancy.EndDate
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary"
+                       data-dismiss="modal" asp-page="Room">
+                        Close
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function chooseFile() {
+        var fileInput = document.getElementById('fileInput');
+        fileInput.click();
+    }
+
+    document.getElementById('fileInput').addEventListener('change', function () {
+        var submitBtn = document.getElementById('submitBtn');
+        submitBtn.click();
+    });
+</script>
